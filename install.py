@@ -120,7 +120,7 @@ def gau_check():
 
 def install_gau():
     home_dir = get_home_dir()
-    subprocess.run([f"cd {home_dir};wget https://github.com/lc/gau/releases/download/v2.2.1/gau_2.2.1_linux_amd64.tar.gz;tar xvf gau_2.2.1_linux_amd64.tar.gz;mv gau {home_dir}/go/bin/gau;rm gau_2.2.1_linux_amd64.tar.gz README.md LICENSE"], shell=True)
+    subprocess.run([f"cd {home_dir};wget https://github.com/lc/gau/releases/download/v2.2.1/gau_2.2.1_darwin_arm64.tar.gz xvf gau_2.2.1_darwin_arm64.tar.gz;mv gau {home_dir}/go/bin/gau;rm gau_2.2.1_darwin_arm64.tar.gz README.md LICENSE"], shell=True)
     install_check = subprocess.run([f"{home_dir}/go/bin/gau --help"], shell=True)
     if install_check.returncode == 0:
         print("[+] Gau installed successfully!")
@@ -174,7 +174,7 @@ def subfinder_check():
 
 def install_subfinder():
     home_dir = get_home_dir()
-    subprocess.run([f"cd {home_dir};wget https://github.com/projectdiscovery/subfinder/releases/download/v2.6.3/subfinder_2.6.3_linux_amd64.zip;unzip subfinder_2.6.3_linux_amd64.zip;mv subfinder {home_dir}/go/bin/subfinder;rm subfinder_*.zip README.md LICENSE"], shell=True)
+    subprocess.run([f"cd {home_dir};wget https://github.com/projectdiscovery/subfinder/releases/download/v2.6.4/subfinder_2.6.4_linux_arm64.zip;unzip subfinder_2.6.4_linux_arm64.zip;mv subfinder {home_dir}/go/bin/subfinder;rm subfinder_*.zip README.md LICENSE"], shell=True)
     install_check = subprocess.run([f"{home_dir}/go/bin/subfinder --help"], shell=True)
     if install_check.returncode == 0:
         print("[+] Subfinder installed successfully!")
@@ -229,7 +229,7 @@ def shuffledns_check():
 
 def install_shuffledns():
     home_dir = get_home_dir()
-    subprocess.run([f"sudo apt-get install -y massdns;cd {home_dir};wget https://github.com/projectdiscovery/shuffledns/releases/download/v1.0.9/shuffledns_1.0.9_linux_amd64.zip;unzip shuffledns_1.0.9_linux_amd64.zip;mv shuffledns {home_dir}/go/bin/shuffledns;rm shuffledns_1.0.9_linux_amd64.zip README.md LICENSE.md"], shell=True)
+    subprocess.run([f"sudo apt-get install -y massdns;cd {home_dir};wget https://github.com/projectdiscovery/shuffledns/releases/download/v1.0.9/shuffledns_1.0.9_linux_arm64.zip;unzip shuffledns_1.0.9_linux_arm64.zip;mv shuffledns {home_dir}/go/bin/shuffledns;rm shuffledns_1.0.9_linux_arm64.zip README.md LICENSE.md"], shell=True)
     install_check = subprocess.run([f"{home_dir}/go/bin/shuffledns --help"], shell=True)
     if install_check.returncode == 0:
         print("[+] ShuffleDNS installed successfully!")
@@ -254,23 +254,6 @@ def install_httprobe():
     else:
         print("[!] Something went wrong!  Httprobe was NOT installed successfully...")
 
-def tlsscan_check():
-    home_dir = get_home_dir()
-    tlsscan_check = subprocess.run([f"ls {home_dir}/Tools/tls-scan/tls-scan"], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, shell=True)
-    if tlsscan_check.returncode == 0:
-        print("[+] TLS-Scan is already installed.")
-        return True
-    print("[!] TLS-Scan is NOT already installed.  Installing now...")
-    return False
-
-def install_tlsscan():
-    home_dir = get_home_dir()
-    subprocess.run([f"cd {home_dir};wget https://github.com/prbinu/tls-scan/releases/download/1.6.0/tls-scan-1.6.0-linux-amd64.tar.gz;tar xvf tls-scan-1.6.0-linux-amd64.tar.gz;mv tls-scan {home_dir}/Tools/tls-scan;rm tls-scan-1.6.0-linux-amd64.tar.gz"], shell=True)
-    install_check = subprocess.run([f"ls {home_dir}/Tools/tls-scan/tls-scan"], shell=True)
-    if install_check.returncode == 0:
-        print("[+] TLS-Scan installed successfully!")
-    else:
-        print("[!] Something went wrong!  TLS-Scan was NOT installed successfully...")
 
 def jq_check():
     jq_check = subprocess.run([f"jq --help"], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, shell=True)
@@ -317,7 +300,7 @@ def nuclei_check():
 
 def install_nuclei():
     home_dir = get_home_dir()
-    subprocess.run([f"cd {home_dir};git clone https://github.com/projectdiscovery/nuclei-templates.git;wget https://github.com/projectdiscovery/nuclei/releases/download/v3.1.2/nuclei_3.1.2_linux_amd64.zip;unzip nuclei_3.1.2_linux_amd64.zip;mv nuclei {home_dir}/go/bin/nuclei;rm nuclei_3.1.2_linux_amd64.zip"], shell=True)
+    subprocess.run([f"cd {home_dir};git clone https://github.com/projectdiscovery/nuclei-templates.git;wget https://github.com/projectdiscovery/nuclei/releases/download/v3.1.10/nuclei_3.1.10_linux_arm64.zip;unzip nuclei_3.1.10_linux_arm64.zip;mv nuclei {home_dir}/go/bin/nuclei;rm nuclei_3.1.10_linux_arm64.zip"], shell=True)
     install_check = subprocess.run([f"{home_dir}/go/bin/nuclei -update"], shell=True)
     if install_check.returncode == 0:
         print("[+] Nuclei installed successfully!")
@@ -382,13 +365,7 @@ def mongodb_check():
     print("[!] Mongodb is NOT already installed.  Installing now...")
     return False
 
-def install_mongodb():
-    mongodb_install = subprocess.run(["""sudo sh -c 'wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -; echo "deb [arch=amd64] https://repo.mongodb.org/apt/debian buster/mongodb-org/4.4 main" >> /etc/apt/sources.list.d/mongodb-org-4.4.list'; sudo apt-get update ; wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb; sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb; rm libssl1.1_1.1.1f-1ubuntu2_amd64.deb; sudo apt-get remove mongodb-server-core ; sudo apt-get install -y mongodb-org ; sudo systemctl start mongod ; sudo systemctl enable mongod"""], shell=True)
-    if mongodb_install.returncode == 0:
-        print("[+] MongoDB was installed successfully!  Starting the service...")
-        start_mongodb_service = subprocess.run(["sudo service mongodb start"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, shell=True)
-    else:
-        print("[!] Something went wrong!  MongoDB was NOT installed successfully...")
+
 
 def get_home_dir():
     get_home_dir = subprocess.run(["echo $HOME"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True, shell=True)
