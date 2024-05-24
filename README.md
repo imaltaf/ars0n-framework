@@ -1,3 +1,5 @@
+
+
 <h1 align="center">
   <a href="https://www.linkedin.com/in/%E2%84%8C%F0%9D%94%9E%F0%9D%94%AF%F0%9D%94%AF%F0%9D%94%A6%F0%9D%94%B0%F0%9D%94%AC%F0%9D%94%AB-%E2%84%9C%F0%9D%94%A6%F0%9D%94%A0%F0%9D%94%A5%F0%9D%94%9E%F0%9D%94%AF%F0%9D%94%A1%F0%9D%94%B0%F0%9D%94%AC%F0%9D%94%AB-%F0%9D%96%A2%F0%9D%96%A8%F0%9D%96%B2%F0%9D%96%B2%F0%9D%96%AF-%F0%9D%96%AE%F0%9D%96%B2%F0%9D%96%B6%F0%9D%96%A4-%F0%9D%96%AC%F0%9D%96%B2%F0%9D%96%BC-7a55bb158/"><img src="static/rs0n-logo.png" width="200px" alt="Arson Logo"></a>
   <br>
@@ -5,8 +7,11 @@
   <br>
 </h1>
 
-<h4 align="center">A Modern, Agile Framework for Bug Bounty Hunting on Kali Linux</h4>
-      
+<h3 align="center"><em>THIS PROJECT HAS BEEN PUT ON HOLD AND IS NO LONGER BEING ACTIVELY SUPPORTED AT THIS TIME.  UPDATES WILL BE PROVIDED IN THE DISCORD SERVER WHEN AVAILABLE.</em></h3>
+
+<h4 align="center"><strong>Designed to Help Aspiring Researchers Start Their Bug Bounty Journey and "Earn While You Learn"</strong> -- <em>by rs0n</em></h4>
+
+
 <p align="center">
   <a href="#about">About</a> •
   <a href="#install">Install</a> •
